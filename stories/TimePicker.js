@@ -59,4 +59,9 @@ storiesOf('Default TimePicker', module)
     <TimePickerWrapper
       timeFormatter={({ hour, minute }) => `${hour} & ${minute}`}
     />
+  ))
+  .addWithInfo('Disable outside click', () => (
+    <TimePickerWrapper
+      outsideClick={false}
+    />
   ));

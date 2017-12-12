@@ -49,6 +49,7 @@ const propTypes = {
   timeFormat: PropTypes.string,
   timeFormatter: PropTypes.func,
   useTz: PropTypes.bool,
+  outsideClick: PropTypes.bool
 };
 
 const defaultProps = {
@@ -76,6 +77,7 @@ const defaultProps = {
   timeFormat: '',
   timeFormatter: null,
   useTz: true,
+  outsideClick: true
 };
 
 class TimePicker extends React.PureComponent {
@@ -320,6 +322,7 @@ class TimePicker extends React.PureComponent {
       placeholder,
       withoutIcon,
       colorPalette,
+      outsideClick
     } = this.props;
 
     const { focused } = this.state;
@@ -349,7 +352,7 @@ class TimePicker extends React.PureComponent {
           </div>
         ) }
         <OutsideClickHandler
-          onOutsideClick={this.onClearFocus}
+          onOutsideClick={outsideClick ? this.onClearFocus : null}
           focused={focused}
         >
           {theme === 'material'
